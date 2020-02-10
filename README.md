@@ -1,26 +1,26 @@
 # aspnet-dump-analysis-sample
 asp.net dump analizi ornek site
 
-#Kurulum
+# Kurulum
 
-##Dump alma
+## Dump alma
 
 > adplus.exe -p [processId] -hang -o c:\dumps
 
-##Windbg
+## Windbg
 
 > .symfix
 > .reload
 > .loadby sos clr
 
-###Exception
+### Exception
 
 > ~*e !clrstack
 > !threads
 > !pe 000000033f621188
 > !runaway 1
 
-###Memory Analiz
+### Memory Analiz
 
 > !dumpheap
 > !dumpheap -type System.IO.MemoryStream
