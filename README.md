@@ -29,9 +29,9 @@ adplus.exe -p [processId] -hang -o c:\dumps
 ### Memory Analiz
 
 ```
-> !dumpheap -stat
-> !dumpheap -type System.IO.MemoryStream
-> !do [address]
-> !do [object address]
-> !gcroot [address to object]
+!dumpheap -stat
+!dumpheap -type System.IO.MemoryStream
+!do [address]
+!do [object address]
+!gcroot [address to object]
 ```
