@@ -8,6 +8,8 @@ namespace WebApplication.Controllers
 {
     public class HomeController : Controller
     {
+        private Card card;
+
         public ActionResult Index()
         {
             return View();
@@ -27,12 +29,14 @@ namespace WebApplication.Controllers
 
         public ActionResult MemoryLeak()
         {
+            card = new Card();
             for (var x = 0; x <= 1000000; x++)
             {
                 // serialize a model class, but forget to dispose it.
                 var stream = new MemoryStream();
-                var serialiser = new XmlSerializer(typeof(Product));
-                serialiser.Serialize(stream, new Product());
+                var serializer = new XmlSerializer(typeof(Product));
+                serializer.Serialize(stream, new Product());
+                card = new Card();
             }
 
             return Content("Memory Leaked!");

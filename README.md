@@ -5,25 +5,36 @@ asp.net dump analizi ornek site
 
 ## Dump alma
 
-> adplus.exe -p [processId] -hang -o c:\dumps
+```
+adplus.exe -p [processId] -hang -o c:\dumps
+```
+
+veya
+
+```
+procdump -accepteula  -m 200 -ma -64 6968
+```
+
+veya
+
+```
+Task manager -> Process -> Create Dump File
+```
 
 ## Windbg
 
-> .symfix
-> .reload
-> .loadby sos clr
-
-### Exception
-
-> ~*e !clrstack
-> !threads
-> !pe 000000033f621188
-> !runaway 1
+```
+.symfix
+.reload
+.loadby sos clr
+```
 
 ### Memory Analiz
 
-> !dumpheap
-> !dumpheap -type System.IO.MemoryStream
-> !do [address]
-> !do [object address]
-> !gcroot [address to object]
+```
+!dumpheap -stat
+!dumpheap -type System.IO.MemoryStream
+!do [address]
+!do [object address]
+!gcroot [address to object]
+```
